@@ -31,9 +31,28 @@ img{
     float: left;
     width: 50%;
     display: block;
+    max-width: 100%;
   }
 
 .pagecontain {
   	max-width: 1300px;
 	  margin: 0 auto;
+}
+
+footer {
+	border-style: ridge;
+	border-bottom: hidden;
+	border-left: hidden;
+	border-right: hidden;
+	font-size:85%;
+	text-align: center;
+  position: bottom;
+}
+
+table {
+  width: 50%;
+}
+
+td {
+  text-align: center;
 }
