@@ -29,7 +29,7 @@
     <div class="w3-right w3-hide-small">
       <a href="product.php" class="w3-bar-item w3-button">Products</a>
       <a href="wishlist.php" class="w3-bar-item w3-button">Wishlist</a>
-      <a href="mvf1.html" class="w3-bar-item w3-button">Account</a>
+      <a href="account.php" class="w3-bar-item w3-button">Account</a>
     </div>
   </header>
 </div>
