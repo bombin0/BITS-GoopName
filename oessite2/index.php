@@ -1,56 +1,103 @@
 <?php
-  require "header.php";
+$dBServername = "localhost";
+$dBUsername = "root";
+$dBPassword = "";
+$dBName = "image_upload";
+  // Create database connection
+  $conn = mysqli_connect($dBServername, $dBUsername, $dBPassword, $dBName, 3308);
+
+  if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+  // Initialize message variable
+  $msg = "";
+
+  // If upload button is clicked ...
+  if (isset($_POST['upload'])) {
+  	// Get image name
+  	$image = $_FILES['image']['name'];
+  	// Get text
+  	$image_text = mysqli_real_escape_string($conn, $_POST['image_text']);
+
+  	// image file directory
+  	$target = "images/".basename($image);
+
+  	$sql = "INSERT INTO images (image, image_text) VALUES ('$image', '$image_text')";
+  	// execute query
+  	mysqli_query($conn, $sql);
+
+  	if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+  		$msg = "Image uploaded successfully";
+  	}else{
+  		$msg = "Failed to upload image";
+  	}
+  }
+  $result = mysqli_query($conn, "SELECT * FROM images");
 ?>
-
-    <main>
-
-          <!--
-            Place main content in else if statement
-          -->
-          <?php
-          if (!isset($_SESSION['id'])) {
-            echo '<p class="login-status">You are logged out!</p>';
-          }
-
-          else if (isset($_SESSION['id'])) {
-            echo '<p class="login-status">You are logged in!</p>';
-
-          }
-          ?>
-
-    </main>
-
-<div class = "wrapper">
-<?php
-	$sql = "SELECT * FROM products;"; //select something from 'wish' table inside 'oeswishlist' database
-	$result = mysqli_query($conn, $sql);
-	$resultCheck = mysqli_num_rows($result); //check if there's a result
-
-	if ($resultCheck > 0) { //only spits out data whilst there's data in the database, aka if there're still results from resultCheck
-		while ($row = mysqli_fetch_assoc($result)) {
-			?>
-			<div>
-			<table class = "wishtable">
-			<tr>
-				<td class = "wishimage"><?php echo '<img src = "data:image;base64,'.base64_encode($row['image']).'" alt = "Image" style = "max-width: 200px; width: auto; height: auto;">';?></td>
-			</tr>
-			<tr>
-				<td class = "wishname"><?php echo $row['name'] . "<br>"; ?></td>
-			</tr>
-			<tr>
-				<td class = "wishprice"><?php echo "$" . $row['price'] . "<br>"; ?></td>
-			</tr>
-			<tr>
-				<td class = "productLink"><a href= "product<?php echo $row['product_id']?>.php">Link To Product Page</a>
-			</tr>
-			</table>
-			</div>
-			<?php
-		}
-	}
-?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Upload</title>
+<style type="text/css">
+   #content{
+   	width: 50%;
+   	margin: 20px auto;
+   	border: 1px solid #cbcbcb;
+   }
+   form{
+   	width: 50%;
+   	margin: 20px auto;
+   }
+   form div{
+   	margin-top: 5px;
+   }
+   #img_div{
+   	width: 80%;
+   	padding: 5px;
+   	margin: 15px auto;
+   	border: 1px solid #cbcbcb;
+   }
+   #img_div:after{
+   	content: "";
+   	display: block;
+   	clear: both;
+   }
+   img{
+   	float: left;
+   	margin: 5px;
+   	width: 300px;
+   	height: 140px;
+   }
+</style>
+</head>
+<body>
+<div id="content">
+  <?php
+    while ($row = mysqli_fetch_array($result)) {
+      echo "<div id='img_div'>";
+      	echo "<img src='images/".$row['image']."' >";
+      	echo "<p>".$row['image_text']."</p>";
+      echo "</div>";
+    }
+  ?>
+  <form method="POST" action="index.php" enctype="multipart/form-data">
+  	<input type="hidden" name="size" value="1000000">
+  	<div>
+  	  <input type="file" name="image">
+  	</div>
+  	<div>
+      <textarea 
+      	id="text" 
+      	cols="40" 
+      	rows="4" 
+      	name="image_text" 
+      	placeholder="please enter a name for this image..."></textarea>
+  	</div>
+  	<div>
+  		<button type="submit" name="upload">POST</button>
+  	</div>
+  </form>
 </div>
-
-<?php
-  require "footer.php";
-?>
+</body>
+</html>
