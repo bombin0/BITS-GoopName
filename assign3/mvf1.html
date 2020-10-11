@@ -65,11 +65,11 @@
   The ‘image’ row handles the identification and storage of the image name, and will allow us to upload 
   and display said image on the users screen. And finally the ‘image_text’ handles the text the user 
   inputs when uploading the image onto the website, in this case it will allow the user to name the image.</p>
-<img class="content" src = "assets/img/db-1.PNG" style="width:50%;">
+<img class="content" src = "assets/img/mvf1/db-1.PNG" style="width:50%;">
 
 <p>This area depicts the location for the storage of image data, the 3 aforementioned fields can be seen 
   below and will eventually be filled out with information as users begin uploading images onto the website.</p>
-<img class="content" src = "assets/img/db-2.PNG" style="width:50%;">
+<img class="content" src = "assets/img/mvf1/db-2.PNG" style="width:50%;">
 
 <br><br>
 
@@ -79,19 +79,19 @@
 <p>This first image depicts the php code dedicated to the database as well as handling all the functions relating to uploading, saving, displaying and anything else to do with the image itself. The first chunk locates and calls the premade database ‘image_upload’ and then connects to said database through the phpmyadmin function.</p>
 <p>The terms $POST and $conn are used frequently throughout this code snippet,$POST is in relation to receiving data directly from a database and $conn is in reference to connecting to said database.</p>
 <p>The remainder of the code is explained through the notation. If the user selects the upload button and selects an image, the image name is stored in the database alongside the image text and that combination is given an id number. After this step is complete the uploaded image will be stored in a file on the server side of the website. If any step fails then an error message will occur, as can be seen from the bottom of the snippet.</p>
-<img class="content" src = "assets/img/code-1.PNG" style="width:50%;">
+<img class="content" src = "assets/img/mvf1/code-1.PNG" style="width:50%;">
 
 <p>The next image depicts the head of the code. Included in the head are two links to the bootstrap CDN and the .js file that is required to run all the bootstrap features that we have utilized and hope to utilize for this website. In addition to this there are a few small css altercations to the base bootstrap stylesheet that indicate a few important things; the first of which is limiting the size of the image that is displayed when a user uploads an image, this is found at the bottom of the snippet, this is important in general security and will stop a user uploading a file that is immense in size that could hinder the server performance. The final thing that the small style section allows us to do is to alter the base bootstrap in case we need to make a more custom implementation of a button or text area, change the color or size of said feature and so forth.</p>
-<img class="content" src = "assets/img/code-2.PNG" style="width:50%;">
+<img class="content" src = "assets/img/mvf1/code-2.PNG" style="width:50%;">
 
 <p>This section of code is the navigation bar done through bootstrap. As this code only covers MVF 1 the links to the other pages are not present, but should be included in the final product and will be a part of our video presentation for assignment 3.</p>
-<img class="content" src = "assets/img/code-3.PNG" style="width:50%;">
+<img class="content" src = "assets/img/mvf1/code-3.PNG" style="width:50%;">
 
 <p>This section of the code handles the visual buttons and connection to the above .php code that handles all the functionality. The first segment displays all the information stored on the database such as the image and image text, the following segments are the locations in which the user may enter the image text as well as the button they press to upload their image and display it on the webpage.</p>
-<img class="content" src = "assets/img/code-4.PNG" style="width:50%;">
+<img class="content" src = "assets/img/mvf1/code-4.PNG" style="width:50%;">
 
 <p>This code handles the text and links on the footer section of the page.</p>
-<img class="content" src = "assets/img/code-5.PNG" style="width:50%;">
+<img class="content" src = "assets/img/mvf1/code-5.PNG" style="width:50%;">
 
 <br><br>
 
@@ -99,13 +99,13 @@
 <p>This section will display images of the web page itself and give reference to the above code and how it is functioning to help the webpage work.</p>
 
 <p>Here is the base page a user may see when attempting to upload an image to the OES website. Displayed on this page are all the aforementioned buttons and text areas that can be seen in the code snippets. In a normal scenario this section would be located on the product page of a specific item, but that will be shown in the final video presentation.</p>
-<img class="content" src = "assets/img/fe-1.PNG" style="width:50%;">
+<img class="content" src = "assets/img/mvf1/fe-1.PNG" style="width:50%;">
 
 <p>The user will select the ‘choose file’ button and will be prompted with a pop-up of their file explorer, they will select an image from their computer and then input a name for the new uploaded image. The user will then hit the ‘upload’ button when they are ready to upload the image and display it on the webpage.</p>
-<img class="content" src = "assets/img/fe-2.PNG" style="width:50%;">
+<img class="content" src = "assets/img/mvf1/fe-2.PNG" style="width:50%;">
 
 <p>After the user hits the ‘upload’ button their selected image will be displayed on screen as can be seen below and they will then partake in the next step which involves MVF 5.</p>
-<img class="content" src = "assets/img/fe-3.PNG" style="width:50%;">
+<img class="content" src = "assets/img/mvf1/fe-3.PNG" style="width:50%;">
 
 <br><br>
 
@@ -113,10 +113,10 @@
 <p>This final section will detail what happens when the user performs the above actions shown in step 3.</p>
 
 <p>After a user selects an image from their computer and hits the upload image button, that data will be sent to the database and displayed on this list, the admin of the server may then alter this information or delete the image from the database for whatever reason.</p>
-<img class="content" src = "assets/img/be-1.PNG" style="width:50%;">
+<img class="content" src = "assets/img/mvf1/be-1.PNG" style="width:50%;">
 
 <p>After the image has been uploaded and stored on the database, a copy of the image file will be added to a specified folder which is located on the server side of the data exchange, basically the image will be stored on the OES websites servers and can be accessed by said servers at any time. In this instance, as we don't have access to a remote server, the file has been stored on my local machine, but the basic principle will remain the same.</p>
-<img class="content" src = "assets/img/be-2.PNG" style="width:50%;">
+<img class="content" src = "assets/img/mvf1/be-2.PNG" style="width:50%;">
 
 
 <h3>Conclusion:</h3>
