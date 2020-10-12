@@ -69,3 +69,8 @@ img.content {
   max-width: none;
   height: auto;
 }
+
+
+.progtable {
+  width: 70%;
+}
