@@ -16,7 +16,7 @@
   <body>
 
     <header>
-      <nav class="nav-header-main">
+      <!--<nav class="nav-header-main">
 
         <ul>
           <li><a href="index.php">Products</a></li>
@@ -24,7 +24,7 @@
           <li><a href="cart.php">Cart</a></li>
 
         </ul>
-      </nav>
+      </nav>-->
       <div class="header-login">
 
         <?php
@@ -34,7 +34,7 @@
             <input type="password" name="pwd" placeholder="Password">
             <button type="submit" name="login-submit">Login</button>
           </form>
-          <a href="signup.php" class="header-signup">Signup</a>';
+          <a id="signup" href="signup.php" class="header-signup">Signup</a>';
         }
         else if (isset($_SESSION['id'])) {
           echo '<form action="includes/logout.inc.php" method="post">
