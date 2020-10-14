@@ -47,6 +47,7 @@
   <p>Team member in charge of MVF - Nicholas Santosa</p>
   <br>
   	<h2><b>MVF Implementation</b></h2>
+		<p>MVF 3 is the Customer Account. This account allows many features for the customer and allows them to continue on and add items to their wishlist. The OES website contains a signup function for any new customers and a login function in the navigation bar for easy access to any customer. Once signed up and logged in the customer is able to access the 'Account page' which displays all the relevant information about the cusomter's account.</p>
 		<h3>Skeleton Website</h3>
 			<img class="content" src = "assets/img/sign_up_new.PNG" style="width:50%;">
 			<p>This is the raw signup page and login page. When the user is registering a new account they have to input a Username they want, their email address, phone number and their password.</p>
@@ -66,10 +67,21 @@
 		<p>The account page is only available to the customer when they have logged in, if logged out the page will tell the customer to log into their account to display any information.</p>
 	
 		<h3>Code</h3>
-			<img class="content" src = "assets/img/accountphp_code.PNG" style="width:50%;">
-			<p>This is the code to display the account's details on the account page.</p>
+			<img class="content" src = "assets/img/MVF3/signUpPageCode.png" style="width:50%;">
+			<img class="content" src = "assets/img/MVF3/signUpVerificationCode.png" style="width:50%;">
+			<p>This is the code for the signup page for all the text fields. It also contains the error messages and checks with the signup verification code to check if there's an error.</p>
+			<p>The second picture is the signup verification code. It checks all fields that the customer has enetered and checks if there are any errors, if there are no errors then it will send the data to the database.</p>
+			<img class="content" src = "assets/img/MVF3/headerCode.png" style="width:50%;">
+			<p>This is the code for the navigation bar which contains the login function. It references the login code and logout code. If the customer is logged out it will display a username, password and login button for the customer to enter in their details, if logged in the navigation bar will change to only display a logout button. The header also references the database code to access the data from the database.</p>
+			<img class="content" src = "assets/img/MVF3/loginCode.png" style="width:50%;">
+			<img class="content" src = "assets/img/MVF3/logoutCode.png" style="width:50%;">
+			<p>This is the code that is referenced in the header code to login and logout. The first picture is for the login and checks the database for any matches with the entered data. The second picture shows the logout code and stops the session when the customer is logged in.</p>
+			<img class="content" src = "assets/img/MVF3/accountPageCode.png" style="width:50%;">
+			<p>This is the code to display the account's details on the account page. It gets the information of the current logged in customer and echos it out on the page.</p>
 	
 		<h3>Database</h3>
+			<img class="content" src = "assets/img/MVF3/databaseCode.png" style="width:50%;">
+			<p>This code displays how the database is accessed from the website. The code is referenced from the header code which allows all websites with the header code to access the data from the database.</p>
 			<img class="content" src = "assets/img/users_database.PNG" style="width:50%;">
 			<p>This is the database where all registered account are stored. It contains all fields that are present in the signup page, Username, email, phone number and pasword. The password is encrypted before entering the database for security purposes.</p>
 	
