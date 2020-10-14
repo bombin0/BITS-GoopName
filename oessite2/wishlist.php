@@ -66,13 +66,16 @@
 
 <div class = "clearwish">
 
-    <form action="wishlist.php" method="post">
-    	<input type="submit" name="delete" value="Clear Wishlist"/>
+    <form action="" method="post">
+    	<input class="delWish" type="submit" name="delete" value="Clear Wishlist"/>
     </form>
 
     <?php
     	if (isset($_POST['delete'])) {
-    		$sql = "DELETE FROM wishlist";
+        $sth = $conn->prepare(
+        "DELETE FROM wishlist");
+        $sth->execute();
+        echo '<p class = "addconfirm">deleted from to wishlist!</p>';
     	}
     ?>
 
