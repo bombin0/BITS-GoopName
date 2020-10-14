@@ -75,7 +75,7 @@
         $sth = $conn->prepare(
         "DELETE FROM wishlist");
         $sth->execute();
-        echo '<p class = "addconfirm">deleted from to wishlist!</p>';
+        echo '<p class = "addconfirm">deleted from wishlist!</p>';
     	}
     ?>
 
