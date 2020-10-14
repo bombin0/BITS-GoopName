@@ -1,47 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-    crossorigin="anonymous" />
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
-
-<title>Signup</title>
-<link href = "oesstyle.css" rel = "stylesheet"/>
-
-</head>
-
-<body>
-
-<nav class="navbar navbar-expand-md navbar-light static-top" style="background-color: #D8DBE2;">
-    <div class="container">
-    <a class="navbar-brand" href="#">
-          <img src="OES.png" alt="">
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link">Home</a>
-                <a href="index.php" class="nav-item nav-link">Products</a>
-				<a href="wishlist.php" class="nav-item nav-link">Wishlist</a>
-                <a href="signup.php" class="nav-item nav-link">Account</a>
-
-            </div>
-        </div>
-    </div>
-</nav>
-
-<div id="content">
-
 <?php
   require "header.php";
 ?>
@@ -49,7 +5,7 @@
     <main>
       <div class="wrapper-main">
         <section class="section-default">
-          <h1 id="signuptitle">Signup</h1>
+          <h1>Signup</h1>
           <?php
           if (isset($_GET["error"])) {
             if ($_GET["error"] == "emptyfields") {
@@ -93,6 +49,12 @@
             else {
               echo '<input type="text" name="mail" placeholder="E-mail">';
             }
+            if (!empty($_GET["phone"])) {
+              echo '<input type="varchar" name="phone" placeholder="Phone Number" value="'.$_GET["phone"].'">';
+            }
+            else {
+              echo '<input type="varchar" name="phone" placeholder="Phone Number">';
+            }
             ?>
             <input type="password" name="pwd" placeholder="Password">
             <input type="password" name="pwd-repeat" placeholder="Repeat password">
@@ -102,7 +64,7 @@
         </section>
       </div>
     </main>
-</div>
+
 <?php
   require "footer.php";
 ?>

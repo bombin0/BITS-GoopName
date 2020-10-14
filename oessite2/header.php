@@ -16,15 +16,17 @@
   <body>
 
     <header>
-      <!--<nav class="nav-header-main">
-
+      <nav class="nav-header-main">
+      <a class="header-logo" href="index.php">
+          <img src="img/OES.png" alt="OES logo">
+      </a>
         <ul>
           <li><a href="index.php">Products</a></li>
           <li><a href="wishlist.php">Wish List</a></li>
-          <li><a href="cart.php">Cart</a></li>
+          <li><a href="account.php">Account</a></li>
 
         </ul>
-      </nav>-->
+      </nav>
       <div class="header-login">
 
         <?php
@@ -34,7 +36,7 @@
             <input type="password" name="pwd" placeholder="Password">
             <button type="submit" name="login-submit">Login</button>
           </form>
-          <a id="signup" href="signup.php" class="header-signup">Signup</a>';
+          <a href="signup.php" class="header-signup">Signup</a>';
         }
         else if (isset($_SESSION['id'])) {
           echo '<form action="includes/logout.inc.php" method="post">

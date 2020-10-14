@@ -1,69 +1,126 @@
-<!DOCTYPE html>
-<html>
-<head>
-
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-    crossorigin="anonymous" />
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
-
-<title>Signup</title>
-<link href = "oesstyle.css" rel = "stylesheet"/>
-
-</head>
-
-<body>
-
-<nav class="navbar navbar-expand-md navbar-light static-top" style="background-color: #D8DBE2;">
-    <div class="container">
-    <a class="navbar-brand" href="#">
-          <img src="OES.png" alt="">
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav">
-                <a href="#" class="nav-item nav-link">Home</a>
-                <a href="index.php" class="nav-item nav-link">Products</a>
-				<a href="wishlist.php" class="nav-item nav-link">Wishlist</a>
-                <a href="signup.php" class="nav-item nav-link">Account</a>
-
-            </div>
-        </div>
-    </div>
-</nav>
-
-<div id="content">
 <?php
   require "header.php";
 ?>
 
     <main>
-		<div id = "logmess">
+
           <!--
             Place main content in else if statement
           -->
           <?php
           if (!isset($_SESSION['id'])) {
-            echo '<p class="login-status">You are logged out!</p>';
+            echo '<p class="login-status">Please Log in!</p>';
+            ?>
+                        <div class = "wrapper">
+            <?php
+            $sql = "SELECT * FROM products WHERE product_id='2';"; //select something from 'wish' table inside 'oeswishlist' database
+	          $result = mysqli_query($conn, $sql);
+            $resultCheck = mysqli_num_rows($result); //check if there's a result
+            if ($resultCheck > 0) { //only spits out data whilst there's data in the database, aka if there're still results from resultCheck
+              while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+			          <div>
+			          <table class = "wishtable">
+			          <tr>
+		          		<td class = "wishimage"><?php echo '<img src = "data:image;base64,'.base64_encode($row['image']).'" alt = "Image" style = "max-width: 200px; width: auto; height: auto;">';?></td>
+		          	</tr>
+			          <tr>
+			          	<td class = "wishname"><?php echo $row['name'] . "<br>"; ?></td>
+			          </tr>
+		          	<tr>
+		          		<td class = "wishprice"><?php echo "$" . $row['price'] . "<br>"; ?></td>
+		          	</tr>
+			          </table>
+                </div>
+                
+		            	<?php
+              }
+            
+            }
+            ?>
+
+            <p style="margin-top: 50px">Product Description</p>
+
+          </div>
+            <?php
           }
 
           else if (isset($_SESSION['id'])) {
-            echo '<p class="login-status">You are logged in!</p>';
+            echo '<p class="login-status"> </p>';
+            
+            
             ?>
-            <form action="" method="post">
-            <input class = "addwish" type="submit" name="addWishlist" value="add to wishlist"/>
-            </form>
-        </div>
 
+            
+            <div class = "wrapper">
             <?php
+            $sql = "SELECT * FROM products WHERE product_id='2';"; //select something from 'wish' table inside 'oeswishlist' database
+	          $result = mysqli_query($conn, $sql);
+            $resultCheck = mysqli_num_rows($result); //check if there's a result
+            if ($resultCheck > 0) { //only spits out data whilst there's data in the database, aka if there're still results from resultCheck
+              while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+			          <div>
+			          <table class = "wishtable">
+			          <tr>
+		          		<td class = "wishimage"><?php echo '<img src = "data:image;base64,'.base64_encode($row['image']).'" alt = "Image" style = "max-width: 200px; width: auto; height: auto;">';?></td>
+		          	</tr>
+			          <tr>
+			          	<td class = "wishname"><?php echo $row['name'] . "<br>"; ?></td>
+			          </tr>
+		          	<tr>
+		          		<td class = "wishprice"><?php echo "$" . $row['price'] . "<br>"; ?></td>
+		          	</tr>
+                </table>
+                <br>
+                <br>
+
+                <p style="font-size=15px;">Upload an image of your space to see if this product is right for you:</p>
+                <br>
+
+                <?php
+    while ($row = mysqli_fetch_array($result)) {
+      echo "<div id='img_div'>";
+      	echo "<img src='images/".$row['image']."' >";
+      	echo "<p>".$row['image_text']."</p>";
+      echo "</div>";
+    }
+  ?>
+  <form method="POST" action="" enctype="multipart/form-data">
+  	<input type="hidden" name="size" value="1000000">
+  	<div>
+  	  <input type="file" name="image">
+  	</div>
+  	<div>
+      <textarea 
+      	id="text" 
+      	cols="40" 
+      	rows="4" 
+      	name="image_text" 
+      	placeholder="please enter a name for this image..."></textarea>
+  	</div>
+  	<div>
+  		<button type="submit" name="upload">POST</button>
+  	</div>
+  </form>
+
+                </div>
+
+		            	<?php
+              }
+            
+            }
+            
+            ?>
+
+            <p style="margin-top: 50px">Product Description</p>
+            <div>
+            <form action="" method="post" style="margin-top: 50px">
+            <input type="submit" name="addWishlist" value="Add to Wishlist"/>
+            </form>
+            <br>
+<br>
+<?php
           }
           //Stuck here, gotta fix this insert statement so that it goes into the wishlist database. INSERT INTO wishlist(name, price) VALUES ('Samsung TV', '500');
           if(isset($_POST['addWishlist'])){
@@ -72,44 +129,51 @@
             SELECT product_id, name, image, price
             FROM products
             WHERE product_id='2';");
-            $sth->execute();
+            $sth->execute();  
 
-            echo '<p class = "addconfirm">Added to wishlist!</p>';
+            echo 'Product added to wishlist.';
             }
           ?>
+            </div>
+            <div style="margin-top: 50px">
+
+
+<?php
+  // Initialize message variable
+  $msg = "";
+
+  // If upload button is clicked ...
+  if (isset($_POST['upload'])) {
+  	// Get image name
+  	$image = $_FILES['image']['name'];
+  	// Get text
+  	$image_text = mysqli_real_escape_string($conn, $_POST['image_text']);
+
+  	// image file directory
+  	$target = "img/".basename($image);
+
+  	$sql = "INSERT INTO images (image, image_text) VALUES ('$image', '$image_text')";
+  	// execute query
+  	mysqli_query($conn, $sql);
+
+  	if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+  		$msg = "Image uploaded successfully";
+  	}else{
+  		$msg = "Failed to upload image";
+  	}
+  }
+  $result = mysqli_query($conn, "SELECT * FROM images");
+?>
+
+
+
+          </div>
+          </div>
+
 
     </main>
 
-<div class = "wrapper">
-<?php
-	$sql = "SELECT * FROM products WHERE product_id='2';"; //select something from 'wish' table inside 'oeswishlist' database
-	$result = mysqli_query($conn, $sql);
-	$resultCheck = mysqli_num_rows($result); //check if there's a result
 
-	if ($resultCheck > 0) { //only spits out data whilst there's data in the database, aka if there're still results from resultCheck
-		while ($row = mysqli_fetch_assoc($result)) {
-			?>
-			<div>
-			<table class = "wishtable">
-			<tr>
-				<td class = "wishimage"><?php echo '<img src = "data:image;base64,'.base64_encode($row['image']).'" alt = "Image" style = "max-width: 200px; width: auto; height: auto;">';?></td>
-			</tr>
-			<tr>
-				<td class = "wishname"><?php echo $row['name'] . "<br>"; ?></td>
-			</tr>
-			<tr>
-				<td class = "wishprice"><?php echo "$" . $row['price'] . "<br>"; ?></td>
-			</tr>
-			</table>
-			</div>
-			<?php
-		}
-	}
-?>
-
-<p>Product Description</p>
-</div>
-</div>
 <?php
   require "footer.php";
 ?>
