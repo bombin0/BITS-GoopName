@@ -3,29 +3,29 @@
    	margin: 20px auto;
    	border: 1px solid #cbcbcb;
    }
-   
+
    form{
    	width: 50%;
    	margin: 20px auto;
    }
-   
+
    form div{
    	margin-top: 5px;
    }
-   
+
    #img_div{
    	width: 80%;
    	padding: 5px;
    	margin: 15px auto;
    	border: 1px solid #cbcbcb;
    }
-   
+
    #img_div:after{
    	content: "";
    	display: block;
    	clear: both;
    }
-   
+
    img{
    	float: left;
    	margin: 5px;
@@ -37,54 +37,57 @@
     width: 150px;
    	height: 70px;
    }
-   
+
    	.wrapper {
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		grid-gap: 15px;
 		margin-left: 50px;
 	}
-	
+
 	.wishtable {
 		border: 1px;
 		width: 200px;
 		height: 300px;
 	}
-	
+
 	.header-login {
 		margin-left: -420px;
 	}
-	
+
 	#signup {
 		margin-left: 470px;
 	}
-	
+
 	#logmess {
 		margin-left: 50px;
 	}
-	
+
 	#signuptitle {
 		margin-left: 470px;
 	}
-	
+
 	.section-default {
 		margin-left: -420px;
 	}
-	
+
 	.addwish {
 		margin-left: -350px;
 	}
-	
+
 	.addconfirm {
 		margin-left: 50px;
 	}
-	
-	
+
+
 	.wishname {
 		font-size: 140%;
 	}
-	
+
 	.wishprice {
 		font-size: 120%;
 	}
-	
+
+  .clearwish {
+    margin-left: -420px;
+  }
