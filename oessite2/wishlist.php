@@ -64,6 +64,20 @@
 		</div>
     </main>
 
+<div class = "clearwish">
+
+    <form action="wishlist.php" method="post">
+    	<input type="submit" name="delete" value="Clear Wishlist"/>
+    </form>
+
+    <?php
+    	if (isset($_POST['delete'])) {
+    		$sql = "DELETE FROM wishlist";
+    	}
+    ?>
+
+</div>
+
 <div class = "wrapper">
 <?php
 	$sql = "SELECT * FROM wishlist;"; //select something from 'wish' table inside 'oeswishlist' database
