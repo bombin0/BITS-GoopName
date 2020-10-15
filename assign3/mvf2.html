@@ -68,8 +68,8 @@
   <br><br>
 
   <h3>Code:</h3>
-  <img class="content" src = "assets/img/mvf2/code1.JPG" style="width:80%;">
-  <img class="content" src = "assets/img/mvf2/code2.JPG" style="width:80%;">
+  <img class="content" src = "assets/img/mvf2/code1.JPG" style="width:100%;">
+  <img class="content" src = "assets/img/mvf2/code2.JPG" style="width:100%;">
   <p>This is the code for the Wish List page that contains php, sql and html statements. </p>
   <p>Lines 1 to 3 in the code includes a fragmented php file that is consistent throughout all pages in the OES site, that being the OES logo, navbar and login / logout features at the top of each page.</p>
   <img class="content" src = "assets/img/mvf2/code3.JPG" style="width:50%;">
@@ -78,7 +78,7 @@
   <p>Lines 10 to 18 in the Wish List code contains an if else statement which checks if there is a user logged in or not. This is so that different messages will be displayed on the page depending on the circumstance.</p>
   <img class="content" src = "assets/img/mvf2/code5.JPG" style="width:50%;">
   <p>Lines 22 to 33 dictates the <i>Clear Wishlist</i> button feature. Line 23 is the actual button displayed on the site, however lines 27 to 31 is what makes that button work. To break it down, line 27 checks if the form posted has the name value of ‘delete’, if so it will connect to the database (line 28) and run the sql command “DELETE FROM wishlist” (line 29) which deletes the rows in the wishlist table located under the oesdb database. After executing that sql command, the site will display to the user that they have No items in their wish list.</p>
-  <img class="content" src = "assets/img/mvf2/code6.JPG" style="width:50%;">
+  <img class="content" src = "assets/img/mvf2/code6.JPG" style="width:100%;">
   <p>Lines 40 to 69 is in charge of displaying the items on the wish list and in a grid like fashion. Line 40 ensures that everything contained in that div is presented as a grid, this is controlled via the following CSS:</p>
   <img class="content" src = "assets/img/mvf2/code7.JPG" style="width:50%;">
   <p>Lines 42 to 46 in the wish list code selects an item from the wishlist database table and checks if it gets a result. If it does get a result, then it will start feeding out data whilst there is still data inside the wishlist database table. It then goes into the while loop in line 47 which prints the data into their own individual tables which essentially separates each wish list item into their own cells. </p>
@@ -87,7 +87,7 @@
   <br><br>
 
   <h3>Database:</h3>
-  <img class="content" src = "assets/img/mvf2/database1.JPG" style="width:50%;">
+  <img class="content" src = "assets/img/mvf2/database1.JPG" style="width:100%;">
   <p>With use of WAMP, we were able to host our databases using phpMyAdmin as shown above. This is where the wishlist table resides inside the oesdb database. Each item added to the wishlist table will be assigned an auto incremented wishlist_id, as well as the other four attributes that are passed on from the products database table when a user adds an item to the wish list.  </p>
 
 </body>
