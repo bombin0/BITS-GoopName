@@ -23,7 +23,7 @@
       <a href="mvf3.html" class="w3-bar-item w3-button">MVF3</a>
       <a href="mvf4.html" class="w3-bar-item w3-button">MVF4</a>
       <a href="mvf5.html" class="w3-bar-item w3-button">MVF5</a>
-      <a href="evfs.html" class="w3-bar-item w3-button">EVFs</a>
+      <a href="EVF.html" class="w3-bar-item w3-button">EVFs</a>
       <a href="technologiesused.html" class="w3-bar-item w3-button">Technologies used</a>
       <a href="challengesprocessfuture.html" class="w3-bar-item w3-button">Challenges, Process and Future</a>
 
@@ -38,36 +38,36 @@
   <br>
 
   <h3>Introduction:</h3>
-  <p>As we have 6 group members we decided to split up this MVF (the augmented reality function) into 2 
-    parts, the upload photo part which is done by me, and the superimpose image part which is done by 
+  <p>As we have 6 group members we decided to split up this MVF (the augmented reality function) into 2
+    parts, the upload photo part which is done by me, and the superimpose image part which is done by
     Joshua of which may be viewed on the ‘MVF 5’ page on the navigation bar.</p>
-  <p>Overall this feature was fairly simple to implement, the primary struggles occurred when attempting 
-    to utilize a database when uploading images and storing said image data on the database itself, 
+  <p>Overall this feature was fairly simple to implement, the primary struggles occurred when attempting
+    to utilize a database when uploading images and storing said image data on the database itself,
     but after some research a good final result was achieved. The tools and technologies that i have
-     used for the creation of this feature are wampserver, with the included MySQL functionality. 
+     used for the creation of this feature are wampserver, with the included MySQL functionality.
      As well as visual studio code in order to create the .php files.</p>
-  <p>The following sections will detail all the parts that were achieved for the implementation 
-    of this specific feature, including screenshots and descriptions to help give a better understanding of 
+  <p>The following sections will detail all the parts that were achieved for the implementation
+    of this specific feature, including screenshots and descriptions to help give a better understanding of
     how this feature works.</p>
 
 <br>
 
 <h3>Part 1 - the database:</h3>
-<p>The first step for the creation of this feature was to make the database using MySQL and 
-  PHPmyadmin found alongside the wampserver functionality , after doing some research online and 
-  following some guides on how to create said database I found a fairly simple solution. It is important 
-  to note that the information, columns and rows found in this database should be transferred over 
-  to the full website database in the final product, but as this is an example of individual implementation, 
+<p>The first step for the creation of this feature was to make the database using MySQL and
+  PHPmyadmin found alongside the wampserver functionality , after doing some research online and
+  following some guides on how to create said database I found a fairly simple solution. It is important
+  to note that the information, columns and rows found in this database should be transferred over
+  to the full website database in the final product, but as this is an example of individual implementation,
   i had no need to do that at this point in time.</p>
-<p>This first image depicts the database structure itself. There are 3 rows, ‘id’ , ‘image’ and 
-  ‘image_text’. The id handles the image identification which will start at ‘1’ and add 1 for 
-  every additional image added to the database, this also acts as the primary key in this scenario. 
-  The ‘image’ row handles the identification and storage of the image name, and will allow us to upload 
-  and display said image on the users screen. And finally the ‘image_text’ handles the text the user 
+<p>This first image depicts the database structure itself. There are 3 rows, ‘id’ , ‘image’ and
+  ‘image_text’. The id handles the image identification which will start at ‘1’ and add 1 for
+  every additional image added to the database, this also acts as the primary key in this scenario.
+  The ‘image’ row handles the identification and storage of the image name, and will allow us to upload
+  and display said image on the users screen. And finally the ‘image_text’ handles the text the user
   inputs when uploading the image onto the website, in this case it will allow the user to name the image.</p>
 <img class="content" src = "assets/img/mvf1/db-1.PNG" style="width:50%;">
 
-<p>This area depicts the location for the storage of image data, the 3 aforementioned fields can be seen 
+<p>This area depicts the location for the storage of image data, the 3 aforementioned fields can be seen
   below and will eventually be filled out with information as users begin uploading images onto the website.</p>
 <img class="content" src = "assets/img/mvf1/db-2.PNG" style="width:50%;">
 
@@ -126,7 +126,7 @@
 
 </div>
 </div>
-	
+
 
 
 
