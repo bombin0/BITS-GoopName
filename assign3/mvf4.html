@@ -46,14 +46,103 @@
   <h1>Database - MVF 4 for OES website</h1>
   <p>Team member in charge of MVF - Arjun Sharma</p>
   <br>
-  <p><u>MVF Implementation</u></p>
+  <br>
+  <h3>Introduction:</h3>
+  <p>To store information regarding product and user details we had to implement a database. We used wamp to host the database and phpMyAdmin to manage the database. This database contains 4 tables for products, users, wishlist and images.</p>
+  <p>The products table stores:</p>
+  <ul>
+    <li>Product ID (Primary)</li>
+    <li>Product image</li>
+    <li>Product name</li>
+    <li>Product price</li>
+  </ul>
+  <p>The Users table stores:</p>
+  <ul>
+    <li>User ID (Primary)</li>
+    <li>Username</li>
+    <li>Email</li>
+    <li>Phone number</li>
+    <li>Password</li>
+  </ul>
+  <p>The wishlist table is empty when the site is loaded and the User must log in and press the 'Add to wishlist' button on the products page to send data to the wishlist table. When the user presses the 'Add to wishlist' button, the wishlist table is populated with the details of the product that the User wants to add.</p>
+  <p>In this case the wishlist table will store:</p>
+  <ul>
+    <li>Wishlist ID (Primary)</li>
+    <li>Product ID (Foreign)</li>
+    <li>Product image</li>
+    <li>Product name</li>
+    <li>Product price</li>
+  </ul>
+  <p>The images table also is empty when the site is loaded. The user must be logged in and have uploaded an image on the products page for this table to be populated.</p>
+  <p>When the user uploads an image, the images table will store:</p>
+  <ul>
+    <li>Image ID (Primary)</li>
+    <li>Image</li>
+    <li>Image text</li>
+  </ul>
+  <br>
+  <br>
+  <h3>Database setup:</h3>
+  <p>To create the tables we used the following queries:</p>
+  <pre>
+    CREATE TABLE products (
+      product_id int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+      name varchar(128) NOT NULL,
+      image BLOB NOT NULL,
+      price int(11) NOT NULL
+    );
 
+
+    CREATE TABLE users (
+      idUsers int(11) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+      uidUsers TINYTEXT NOT NULL,
+      emailUsers TINYTEXT NOT NULL,
+      phoneUsers varchar(15) NOT NULL,
+      pwdUsers LONGTEXT NOT NULL
+    );
+
+
+    CREATE TABLE wishlist (
+      wishlist_id AUTO_INCREMENT INT NOT NULL,
+      product_id INT NOT NULL,
+      name VARCHAR(40),
+      image BLOB,
+      price INT,
+      PRIMARY KEY (wishlist_id),
+      FOREIGN KEY (product_id) REFERENCES products(product_id)
+    );
+
+    CREATE TABLE images (
+      id int(11) NOT NULL AUTO_INCREMENT,
+      image varchar(200) NOT NULL,
+      text text NOT NULL,
+      PRIMARY KEY (id)
+    );
+
+  </pre>
+  <p>Database overview in phpMyAdmin:</p>
+  <img class="content" src = "assets/img/mvf4/db overview.png" style="width:50%;">
+  <br>
+  <p>Products table in phpMyAdmin:</p>
+  <img class="content" src = "assets/img/mvf4/db products.png" style="width:50%;">
+  <br>
+  <p>Users table in phpMyAdmin:</p>
+  <img class="content" src = "assets/img/mvf4/db users.png" style="width:50%;">
+  <br>
+  <p>Images table in phpMyAdmin:</p>
+  <img class="content" src = "assets/img/mvf4/db images.png" style="width:50%;">
+  <br>
+  <p>Wishlist in phpMyAdmin:</p>
+  <img class="content" src = "assets/img/mvf4/db wishlist.png" style="width:50%;">
+  <br>
+  <br>
+  <h3>Code:</h3>
+  <p>Database connection:</p>
+  <img class="content" src = "assets/img/mvf4/connection.png" style="width:50%;">
+  <br>
+  <p></p>
 </div>
 </div>
-
-
-
-
 
 </body>
 
