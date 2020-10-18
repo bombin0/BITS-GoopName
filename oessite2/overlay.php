@@ -153,34 +153,29 @@
   <div class="col border">
     
   
-
+<!-- Containers -->
     <div class = "container.fluid"> 
       <div id="imageHolder" class= "p-3 "  >
-
-
-    <!-- Php lines of code will be put here -->
-        <img id="userImage" src="#" alt="your image" />
-        <!-- This will be a php varible which takes the correct model to display and puts it on the page. -->
-        <!-- Right now its not set to an image, just one hard coded that was on my laptop -->
-
-<!-- I've tried looking at how images from the database have been privously inserted into the web page -->
-<!-- This  -->
         <?php
             $sql = "SELECT * FROM products WHERE product_id='1';"; //select something from 'wish' table inside 'oeswishlist' database
 	          $result = mysqli_query($conn, $sql);
             $resultCheck = mysqli_num_rows($result); //check if there's a result
-            if ($resultCheck > 0) { //only spits out data whilst there's data in the database, aka if there're still results from resultCheck
+            if ($resultCheck > 0) { //only spits out data whilst there's data in the database
               while ($row = mysqli_fetch_assoc($result)) {
                 ?>
 			          <div>
-			        <?php echo '<img src = "data:image;base64,'.base64_encode($row['image']).'" alt = "Image" style = "max-width: 200px; width: auto; height: auto;">';?>
+                  <table>
+                    <tr>
+                      <!-- Display the image where product ID is 1 in the db -->
+                      <td><?php echo '<img id ="model" src = "data:image;base64,'.base64_encode($row['image']).'" alt = "Image" style = "max-width: 200px; width: auto; height: auto;">';?>
               </div>
-        <!-- <img id = "model" src="#" alt="Model of product"> -->
+    
 
   </div>
 </div>
 
 </body>
+
 
 
 
