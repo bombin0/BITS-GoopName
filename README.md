@@ -8,3 +8,5 @@ Created By:
 - Nicholas Santosa - s3844591
 - Joshua Kreppold - s3838911
 - Jacob Bell - s3782072
+
+The oessite2 directory contains the final project.
